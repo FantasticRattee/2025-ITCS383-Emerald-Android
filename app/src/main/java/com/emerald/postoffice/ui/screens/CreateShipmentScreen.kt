@@ -14,7 +14,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.KeyboardType
 import com.emerald.postoffice.data.SessionManager
+import com.emerald.postoffice.data.ThaiPostalCodes
 import com.emerald.postoffice.data.api.RetrofitClient
 import com.emerald.postoffice.data.model.CreateShipmentRequest
 import com.emerald.postoffice.ui.theme.*
@@ -30,8 +33,12 @@ fun CreateShipmentScreen(
 ) {
     val userId by sessionManager.userId.collectAsState(initial = 0)
     var recipient by remember { mutableStateOf("") }
+    var originZip by remember { mutableStateOf("") }
     var origin by remember { mutableStateOf("Bangkok") }
+    var originAutoFilled by remember { mutableStateOf(false) }
+    var destZip by remember { mutableStateOf("") }
     var destination by remember { mutableStateOf("") }
+    var destAutoFilled by remember { mutableStateOf(false) }
     var parcelType by remember { mutableStateOf("Parcel") }
     var service by remember { mutableStateOf("Standard") }
     var weight by remember { mutableStateOf("") }
@@ -103,15 +110,63 @@ fun CreateShipmentScreen(
                 modifier = Modifier.fillMaxWidth(), singleLine = true,
                 shape = RoundedCornerShape(12.dp)
             )
+
+            // Origin zip + province with auto-fill
             OutlinedTextField(
-                value = origin, onValueChange = { origin = it },
-                label = { Text("Origin City") },
+                value = originZip,
+                onValueChange = { newVal ->
+                    val filtered = newVal.filter { it.isDigit() }.take(5)
+                    originZip = filtered
+                    val prov = ThaiPostalCodes.lookupProvince(filtered)
+                    if (prov != null) {
+                        origin = prov
+                        originAutoFilled = true
+                    } else {
+                        originAutoFilled = false
+                    }
+                },
+                label = { Text("Origin Postal Code") },
+                placeholder = { Text("e.g. 10110") },
+                modifier = Modifier.fillMaxWidth(), singleLine = true,
+                shape = RoundedCornerShape(12.dp),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                supportingText = if (originAutoFilled) {
+                    { Text("Province auto-filled: $origin", color = Color(0xFF16A34A)) }
+                } else null
+            )
+            OutlinedTextField(
+                value = origin, onValueChange = { origin = it; originAutoFilled = false },
+                label = { Text("Origin Province") },
                 modifier = Modifier.fillMaxWidth(), singleLine = true,
                 shape = RoundedCornerShape(12.dp)
             )
+
+            // Destination zip + province with auto-fill
             OutlinedTextField(
-                value = destination, onValueChange = { destination = it },
-                label = { Text("Destination City") },
+                value = destZip,
+                onValueChange = { newVal ->
+                    val filtered = newVal.filter { it.isDigit() }.take(5)
+                    destZip = filtered
+                    val prov = ThaiPostalCodes.lookupProvince(filtered)
+                    if (prov != null) {
+                        destination = prov
+                        destAutoFilled = true
+                    } else {
+                        destAutoFilled = false
+                    }
+                },
+                label = { Text("Destination Postal Code") },
+                placeholder = { Text("e.g. 50200") },
+                modifier = Modifier.fillMaxWidth(), singleLine = true,
+                shape = RoundedCornerShape(12.dp),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                supportingText = if (destAutoFilled) {
+                    { Text("Province auto-filled: $destination", color = Color(0xFF16A34A)) }
+                } else null
+            )
+            OutlinedTextField(
+                value = destination, onValueChange = { destination = it; destAutoFilled = false },
+                label = { Text("Destination Province") },
                 modifier = Modifier.fillMaxWidth(), singleLine = true,
                 shape = RoundedCornerShape(12.dp)
             )
