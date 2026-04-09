@@ -18,12 +18,18 @@
 
 | Student ID | First Name      | Last Name          |
 |------------|-----------------|--------------------|
-| 6688046    | Warut           | Khamkaveephart     |
-| 6688194    | Muhummadcharif  | Kapa               |
-| 6688083    | Teeramanop      | Pinsupa            |
-| 6688148    | Bunyakorn       | Wongchadakul       |
-| 6688205    | Sirawit         | Noomanoch          |
-| 6688226    | Thanawat        | Thanasirithip      |
+| 6688139   | Naruebordint          | Veangnont    |
+| 6688141    | Rattee  | Watperatam             |
+| 6688155   | Nattaphong      | Jullayakiat           |
+| 6688164   | Veerakron      | No-in       |
+| 6688172    | Wirunya         | Kaewthong         |
+| 6688239   | Piyada        |  Chalermnontakarn     |
+6688139 Naruebordint Veangnont
+6688141 Rattee Watperatam
+6688155 Nattaphong Jullayakiat
+6688164 Veerakron Kaewthong
+6688172 Veerakorn No-in
+6688239 Piyada Chalermnontakarn
 
 ---
 
