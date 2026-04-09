@@ -72,48 +72,60 @@ The Android app is built using modern Android development practices (Kotlin, lik
 └── settings.gradle.kts                  # Project settings
 ```
 
----
+## 💻 Developer Setup (Run Locally)
 
-## 🚀 Getting Started (Run Locally)
+Because this is a native mobile app, it requires the Node.js backend and MySQL database from the web repository to function locally.
 
 ### Prerequisites
-
-- [Android Studio](https://developer.android.com/studio) (Latest version recommended)
+- [Android Studio](https://developer.android.com/studio) (Latest version)
 - Java Development Kit (JDK) 17 or higher
-- An Android Emulator or a physical Android device (Android 8.0+ recommended)
-- The backend server running locally or deployed (to handle API requests)
+- [Node.js](https://nodejs.org/) v16 or higher
+- [MySQL](https://dev.mysql.com/downloads/) installed and running
+- The Backend repository cloned on your machine
 
-### Detailed Steps
+### Step 1: Set Up the Database & Backend
 
-#### 1. Clone the Repository
-
-```bash
-git clone [https://github.com/ICT-Mahidol/2025-ITCS383-EMERALD-ANDROID.git](https://github.com/ICT-Mahidol/2025-ITCS383-EMERALD-ANDROID.git)
-```
-
-#### 2. Open the Project in Android Studio
-
-1. Open Android Studio.
-2. Select **Open** and navigate to the cloned `2025-ITCS383-EMERALD-ANDROID` directory.
-3. Allow Android Studio to sync the project with Gradle files. This might take a few minutes as it downloads the required dependencies.
-
-#### 3. Configure the API Connection
-
-If you are running the backend locally, you will need to point the Android app to your local machine's IP address (not `localhost`, as that resolves to the emulator itself). 
-
-1. Find your machine's local IP address (e.g., `192.168.1.x`). *If using the default Android Studio emulator to connect to localhost, you can use `10.0.2.2`.*
-2. Open `app/src/main/java/com/emerald/postoffice/data/api/RetrofitClient.kt`.
-3. Update the `BASE_URL` variable to point to your backend API:
-   ```kotlin
-   const val BASE_URL = "[http://10.0.2.2:3000/api/](http://10.0.2.2:3000/api/)" // Example for local emulator
+1. Open a terminal and navigate to your backend repository folder.
+2. Initialize the MySQL database:
+   ```bash
+   mysql -u root -p < implementations/backend/setup.sql
    ```
+   *(Enter your MySQL root password when prompted).*
+3. Configure your environment variables. Create a `.env` file in the backend folder:
+   ```env
+   DB_HOST=localhost
+   DB_USER=root
+   DB_PASS=your_mysql_password
+   DB_NAME=postoffice
+   PORT=3000
+   ```
+4. Start the local backend server:
+   ```bash
+   cd implementations/backend
+   npm install
+   node server.js
+   ```
+   *(Keep this terminal open)*.
 
-#### 4. Run the Application
+### Step 2: Configure the Android App
+
+1. Clone this Android repository:
+   ```bash
+   git clone [https://github.com/ICT-Mahidol/2025-ITCS383-EMERALD-ANDROID.git](https://github.com/ICT-Mahidol/2025-ITCS383-EMERALD-ANDROID.git)
+   ```
+2. Open the project in **Android Studio** and let Gradle sync.
+3. Open `app/src/main/java/com/emerald/postoffice/data/api/RetrofitClient.kt`.
+4. Update the `BASE_URL` to point to your local machine:
+   - **For Android Studio Emulator:** Use `http://10.0.2.2:3000/api/`
+   - **For Physical Android Device:** Use `http://YOUR_WIFI_IP:3000/api/` (e.g., `http://192.168.1.5:3000/api/`)
+
+### Step 3: Run the App
 
 1. Select an emulator or connected physical device from the target device drop-down menu in the toolbar.
 2. Click the green **Run** button (`Shift + F10`) to build and launch the app.
 
 ---
+
 
 ## 🛠️ Troubleshooting
 
