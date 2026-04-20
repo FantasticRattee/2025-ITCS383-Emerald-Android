@@ -1,7 +1,6 @@
 package com.emerald.postoffice._test_
 
 import com.emerald.postoffice.data.ThaiPostalCodes
-import org.junit.jupiter.api.Assertions.*
 import org.junit.Test
 import org.junit.Assert.*
 
