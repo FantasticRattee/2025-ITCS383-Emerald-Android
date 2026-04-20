@@ -23,8 +23,8 @@ jobs:
       - name: Grant execute permission
         run: chmod +x gradlew
 
-      - name: Debug Kotlin build
-        run: ./gradlew compileDebugKotlin --stacktrace
+      - name: Build and Test
+        run: ./gradlew test
 
       - name: SonarCloud Scan
         run: ./gradlew sonar \
