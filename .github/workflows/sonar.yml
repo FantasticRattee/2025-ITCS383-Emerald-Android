@@ -22,8 +22,17 @@ jobs:
       - name: Grant execute permission
         run: chmod +x gradlew
 
-      - name: Build and Test
+      - name: Build project
+        run: ./gradlew build
+
+      - name: Run Test
         run: ./gradlew test
 
       - name: SonarCloud Scan
-        run: ./gradlew sonar -Dsonar.projectKey=FantasticRattee_2025-ITCS383-Arai-Kor-Dai -Dsonar.organization=fantasticrattee -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          args: >
+            -Dsonar.projectKey=FantasticRattee_2025-ITCS383-Arai-Kor-Dai
+            -Dsonar.organization=fantasticrattee
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
