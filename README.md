@@ -78,7 +78,7 @@ Because this is a native mobile app, it requires the Node.js backend and MySQL d
 
 ### Prerequisites
 - [Android Studio](https://developer.android.com/studio) (Latest version)
-- Java Development Kit (JDK) 17 or higher
+- Java Development Kit (JDK) 17 or highers
 - [Node.js](https://nodejs.org/) v16 or higher
 - [MySQL](https://dev.mysql.com/downloads/) installed and running
 - The Backend repository cloned on your machine
