@@ -18,6 +18,7 @@ android {
 
     testOptions {
         unitTests.all {
+            useJUnitPlatform()
         }
     }
 
@@ -97,4 +98,8 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.3")
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
+    testImplementation("io.mockk:mockk:1.13.8")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
 }
