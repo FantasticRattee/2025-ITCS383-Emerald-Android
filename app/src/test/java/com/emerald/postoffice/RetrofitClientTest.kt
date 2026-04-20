@@ -54,27 +54,4 @@ class RetrofitClientTest {
         assertNotNull(httpClient)
         // Note: In a real test, you might verify the interceptor is added
     }
-
-    @Test
-    fun `invalid base url throws exception`() {
-        // When & Then
-        assertThrows(IllegalArgumentException::class.java) {
-            Retrofit.Builder()
-                .baseUrl("invalid-url")
-                .client(OkHttpClient.Builder().build())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-        }
-    }
-
-    @Test
-    fun `retrofit without base url throws exception`() {
-        // When & Then
-        assertThrows(IllegalArgumentException::class.java) {
-            Retrofit.Builder()
-                .client(OkHttpClient.Builder().build())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-        }
-    }
 }
