@@ -19,9 +19,12 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
+          
+      - name: Grant execute permission
+        run: chmod +x gradlew
 
       - name: Build & Test
-        run: mvn clean verify
+        run: ./gradlew test
 
       - name: SonarCloud Scan
         run: mvn sonar:sonar \
