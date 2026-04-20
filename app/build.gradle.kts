@@ -34,9 +34,7 @@ android {
     }
 
     testOptions {
-        unitTests.all {
-            useJUnitPlatform()
-        }
+        unitTests.isIncludeAndroidResources = true
     }
 
     compileOptions {
@@ -58,11 +56,6 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-}
-
-
-tasks.withType<Test> {
-    useJUnitPlatform()
 }
 
 dependencies {
@@ -97,8 +90,8 @@ dependencies {
     // DataStore
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
-    //TEST 
-    testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
+    //TEST
+    testImplementation("junit:junit:4.13.2")
     testImplementation("io.mockk:mockk:1.13.10")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
 
