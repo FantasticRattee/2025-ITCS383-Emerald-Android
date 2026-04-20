@@ -3,8 +3,7 @@ name: SonarCloud
 on:
   push:
     branches:
-      - main
-      - "*"
+      - "**"
   pull_request:
 
 jobs:
@@ -27,9 +26,4 @@ jobs:
         run: ./gradlew test
 
       - name: SonarCloud Scan
-        run: |
-          ./gradlew sonar \
-          -Dsonar.projectKey=FantasticRattee_2025-ITCS383-Arai-Kor-Dai \
-          -Dsonar.organization=fantasticrattee \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew sonar -Dsonar.projectKey=FantasticRattee_2025-ITCS383-Arai-Kor-Dai -Dsonar.organization=fantasticrattee -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
