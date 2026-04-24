@@ -118,16 +118,25 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         "**/R.class",
         "**/R$*.class",
         "**/BuildConfig.*",
-        "**/Manifest*.*"
+        "**/Manifest*.*",
+        "**/*ComposableSingletons*.*",
+        "**/databinding/**",
+        "**/*_MembersInjector.*"
     )
 
-    val debugTree = fileTree("${buildDir}/tmp/kotlin-classes/debug") {
-        exclude(fileFilter)
-    }
-
+    // Cover both possible Kotlin class output paths across different AGP/KGP versions
+    classDirectories.setFrom(
+        files(
+            fileTree(layout.buildDirectory.dir("tmp/kotlin-classes/debug")) {
+                exclude(fileFilter)
+            },
+            fileTree(layout.buildDirectory.dir("intermediates/javac/debug")) {
+                exclude(fileFilter)
+            }
+        )
+    )
     sourceDirectories.setFrom(files("src/main/java"))
-    classDirectories.setFrom(files(debugTree))
-    executionData.setFrom(fileTree(buildDir) {
+    executionData.setFrom(fileTree(layout.buildDirectory) {
         include("jacoco/testDebugUnitTest.exec")
     })
 }
