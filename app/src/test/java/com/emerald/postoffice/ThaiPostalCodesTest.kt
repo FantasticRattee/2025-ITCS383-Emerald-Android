@@ -1,4 +1,4 @@
-package com.emerald.postoffice._test_
+package com.emerald.postoffice
 
 import com.emerald.postoffice.data.ThaiPostalCodes
 import org.junit.Test

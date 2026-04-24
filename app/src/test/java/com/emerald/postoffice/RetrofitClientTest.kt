@@ -1,4 +1,4 @@
-package com.emerald.postoffice._test_
+package com.emerald.postoffice
 
 import com.emerald.postoffice.data.api.ApiService
 import com.emerald.postoffice.data.api.RetrofitClient
@@ -53,5 +53,32 @@ class RetrofitClientTest {
         // Then
         assertNotNull(httpClient)
         // Note: In a real test, you might verify the interceptor is added
+    }
+
+    @Test
+    fun `retrofit instance is created with gson converter`() {
+        // When
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://example.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        // Then
+        assertNotNull(retrofit)
+        assertTrue(retrofit.converterFactories().any { it is GsonConverterFactory })
+    }
+
+    @Test
+    fun `okhttp client has default timeouts`() {
+        // When
+        val client = OkHttpClient.Builder()
+            .connectTimeout(30, java.util.concurrent.TimeUnit.SECONDS)
+            .readTimeout(30, java.util.concurrent.TimeUnit.SECONDS)
+            .build()
+
+        // Then
+        assertNotNull(client)
+        assertEquals(30, client.connectTimeoutMillis / 1000)
+        assertEquals(30, client.readTimeoutMillis / 1000)
     }
 }
