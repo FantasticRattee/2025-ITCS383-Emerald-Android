@@ -1,7 +1,7 @@
 # 🏣 Post Office Online Shipping System (Android)
 ### 2025-ITCS383 · Arai-Kor-Dai / Emerald
 
-> A native Android application that allows customers to prepare parcels and letters before visiting the post office — register, create shipments, pay online, and track deliveries right from their mobile devicess.
+> A native Android application that allows customers to prepare parcels and letters before visiting the post office — register, create shipments, pay online, and track deliveries right from their mobile devicesss.
 
 ---
 
