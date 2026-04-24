@@ -38,4 +38,4 @@ jobs:
             -Dsonar.organization=peemnoin
             -Dsonar.coverage.jacoco.xmlReportPaths=app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKENS }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
