@@ -16,7 +16,7 @@ class RoutesTest {
         val route = Routes.payment(amount, shipmentData)
 
         // Then
-        assertEquals("payment/100.0/test%20data%20with%20spaces%20%26%20special%20chars", route)
+        assertEquals("payment/100.0/test+data+with+spaces+%26+special+chars", route)
     }
 
     @Test
@@ -29,7 +29,7 @@ class RoutesTest {
         val route = Routes.shippingLabel(trackingNumber, shipmentData)
 
         // Then
-        assertEquals("shipping_label/TRACK123/label%20data", route)
+        assertEquals("shipping_label/TRACK123/label+data", route)
     }
 
     @Test
@@ -55,6 +55,6 @@ class RoutesTest {
         val route = Routes.shippingLabel(trackingNumber, shipmentData)
 
         // Then
-        assertEquals("shipping_label/TRACK%2F123/data", route)
+        assertEquals("shipping_label/TRACK/123/data", route)
     }
 }

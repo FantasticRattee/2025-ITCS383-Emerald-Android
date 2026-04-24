@@ -78,7 +78,7 @@ class RetrofitClientTest {
 
         // Then
         assertNotNull(client)
-        assertEquals(30, client.connectTimeoutMillis() / 1000)
-        assertEquals(30, client.readTimeoutMillis() / 1000)
+        assertEquals(30, client.connectTimeoutMillis / 1000)
+        assertEquals(30, client.readTimeoutMillis / 1000)
     }
 }
