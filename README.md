@@ -1,7 +1,7 @@
 # 🏣 Post Office Online Shipping System (Android)
 ### 2025-ITCS383 · Arai-Kor-Dai / Emerald
 
-> A native Android application that allows customers to prepare parcels and letters before visiting the post office — register, create shipments, pay online, and track deliveries right from their mobile devices.
+> A native Android application that allows customers to prepare parcels and letters before visiting the post office — register, create shipments, pay online, and track deliveries right from their mobile devicesss.
 
 ---
 
@@ -78,7 +78,7 @@ Because this is a native mobile app, it requires the Node.js backend and MySQL d
 
 ### Prerequisites
 - [Android Studio](https://developer.android.com/studio) (Latest version)
-- Java Development Kit (JDK) 17 or higher
+- Java Development Kit (JDK) 17 or highers
 - [Node.js](https://nodejs.org/) v16 or higher
 - [MySQL](https://dev.mysql.com/downloads/) installed and running
 - The Backend repository cloned on your machine
