@@ -23,7 +23,7 @@ This report presents a comprehensive quality evidence analysis for the **PostOff
 
 The objective of this report is to demonstrate measurable improvement in software quality between the previous code state and the current state, supported by concrete metrics extracted from SonarCloud analysis results. All values reported herein are derived exclusively from the original D4 report and the latest SonarCloud dashboard screenshots.
 
-**SonarCloud Project Link:** [https://sonarcloud.io/project/overview?id=K0311_2025-ITCS383-Arai-Kor-Dai](https://sonarcloud.io/project/overview?id=K0311_2025-ITCS383-Arai-Kor-Dai)
+**SonarCloud Project Link:** [https://sonarcloud.io/project/overview?id=K0311_2025-ITCS383-Arai-Kor-Dai]([https://sonarcloud.io/project/overview?id=K0311_2025-ITCS383-Arai-Kor-Dai](https://sonarcloud.io/component_measures?metric=new_bugs&id=peemnoin_2025-ITCS383-Emerald-Android))
 
 ---
 
