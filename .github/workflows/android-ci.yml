@@ -91,6 +91,9 @@ jobs:
           path: app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
           retention-days: 14
 
+      - name: Debug sonar config
+        run: cat sonar-project.properties
+
       # ─── SonarCloud analysis ───────────────────────────────────────────────
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5
