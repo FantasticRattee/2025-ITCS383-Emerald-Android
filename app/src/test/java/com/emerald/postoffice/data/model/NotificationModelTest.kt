@@ -40,13 +40,13 @@ class NotificationModelTest {
     }
 
     @Test
-    fun `AppNotification isRead flag: 0 means unread`() {
+    fun `AppNotification isRead flag 0 means unread`() {
         val notif = AppNotification(isRead = 0)
         assertEquals(0, notif.isRead)
     }
 
     @Test
-    fun `AppNotification isRead flag: 1 means read`() {
+    fun `AppNotification isRead flag 1 means read`() {
         val notif = AppNotification(isRead = 1)
         assertEquals(1, notif.isRead)
     }
