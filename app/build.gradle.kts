@@ -130,21 +130,35 @@ tasks.register<JacocoReport>("jacocoTestReport") {
     // Where Kotlin/Java class files live after compiling the debug variant
     val debugTree = fileTree("${layout.buildDirectory.get()}/tmp/kotlin-classes/debug") {
         exclude(
+            // ── Generated boilerplate ────────────────────────────────────────
             "**/R.class",
             "**/R\$*.class",
             "**/BuildConfig.*",
             "**/Manifest*.*",
             "**/*Test*.*",
             "android/**/*.*",
-            // Exclude Jetpack Compose-generated classes
+            // ── Jetpack Compose generated classes ────────────────────────────
             "**/*\$\$inlined*",
             "**/*Composable*",
-            // Exclude DI / generated code if you add Hilt/Dagger later
+            "**/*ComposableSingletons*",
+            // ── DI generated code (future-proofing for Hilt/Dagger) ──────────
             "**/*_Factory*",
             "**/*_MembersInjector*",
+            // ── Entire UI layer (Compose screens + theme + navigation) ────────
             "**/ui/theme/**",
             "**/ui/screens/**",
             "**/navigation/**",
+            // ── Android framework classes (Activity, Application) ─────────────
+            // These require an instrumented device/emulator to test.
+            "**/MainActivity*",
+            "**/PostOfficeApp*",
+            // ── Android-context-dependent infrastructure ──────────────────────
+            // SessionManager uses DataStore (needs real Context).
+            // RetrofitClient uses BuildConfig.API_BASE_URL (generated at build time).
+            // ApiService is a Retrofit interface with no executable lines.
+            "**/data/SessionManager*",
+            "**/data/api/RetrofitClient*",
+            "**/data/api/ApiService*",
         )
     }
 
