@@ -83,7 +83,9 @@ object ThaiPostalCodes {
     )
 
     fun lookupProvince(zip: String): String? {
-        if (zip.length != 5) return null
+        // A valid Thai postal code is exactly 5 decimal digits.
+        // Reject anything that is the wrong length OR contains non-digit characters.
+        if (zip.length != 5 || !zip.all { it.isDigit() }) return null
         return prefixToProvince[zip.substring(0, 2)]
     }
 }
