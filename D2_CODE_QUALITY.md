@@ -75,6 +75,45 @@ All issue categories — bugs, vulnerabilities, and code smells — were reduced
 
 The project achieved an **A rating** for both Security and Security Review categories, with zero security issues and zero security hotspots. This confirms that the codebase follows secure coding practices.
 
+
+### 3.5 Issue Resolution Evidence
+
+The SonarCloud issue tracking interface provides concrete evidence of code quality improvements through the resolution of previously identified maintainability issues.
+
+A total of **17 code smell issues** were identified in the earlier analysis and have now been fully resolved. These issues were distributed across multiple severity levels:
+
+- **Critical:** 8 issues  
+- **Major:** 5 issues  
+- **Minor:** 4 issues  
+
+All identified issues are currently marked with the status **“Fixed”**, confirming that no outstanding code smell issues remain in the codebase.
+
+### Key Refactoring Actions
+
+The resolution of these issues involved several targeted refactoring efforts:
+
+- **Reduction of Cognitive Complexity**  
+  A complex method in `CreateShipmentScreen.kt` was refactored to reduce its cognitive complexity from **35 to the allowed threshold of 15**, improving code readability and maintainability.
+
+- **Removal of Unused Variables**  
+  Unused local variables such as `userId`, `isLoading`, and `scope` were removed. This reduces unnecessary code clutter and improves overall code clarity.
+
+- **Elimination of Duplicate Literals**  
+  Repeated literal values (e.g., formatting strings) were replaced with constants, ensuring better consistency and maintainability across the codebase.
+
+### Impact on Maintainability
+
+These improvements directly contribute to enhanced maintainability by:
+
+- Simplifying complex logic structures  
+- Reducing redundant and unused code  
+- Improving adherence to coding standards enforced by SonarCloud  
+
+As a result of these changes, the project now achieves **zero code smells across all severity levels**, aligning with the highest maintainability standards.
+
+<img width="1681" height="895" alt="image" src="https://github.com/user-attachments/assets/a3098b08-e09c-4c92-a6fb-16736819bea6" />
+
+
 ---
 
 ## 4. New Code Analysis
@@ -92,6 +131,9 @@ The latest SonarCloud analysis of the **PostOfficeApp Android** project (365 Lin
 | Security        | A      | 0           |
 | Reliability     | A      | 0           |
 | Maintainability | A      | 0           |
+
+<img width="1920" height="853" alt="image" src="https://github.com/user-attachments/assets/6f69f39d-e650-4db3-b4c2-87256c9d7c27" />
+
 
 ### Issue Breakdown by Severity
 
@@ -119,6 +161,9 @@ The latest SonarCloud analysis of the **PostOfficeApp Android** project (365 Lin
 | Intentionality | 0      |
 | Adaptability   | 0      |
 | Responsibility | 0      |
+
+<img width="1918" height="877" alt="image" src="https://github.com/user-attachments/assets/72f7a299-5518-4c68-a183-6228eb94642d" />
+
 
 ### Coverage and Duplication
 
