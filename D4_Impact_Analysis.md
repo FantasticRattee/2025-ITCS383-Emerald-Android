@@ -188,6 +188,7 @@ flowchart TD
 
   F1 --> CR04
   F1 --> CR05
+  F1 --> CR08
   F2 --> CR03
   F2 --> CR05
   F3 --> CR06
@@ -344,7 +345,7 @@ flowchart LR
 Distance means the number of directed edges from the row SLO to the column SLO. `0` means the same SLO, `1` means directly connected, `2` means reachable through one intermediate SLO, and `-` means no directed path was identified in this impact model.
 
 | From / To | S1 | S2 | S3 | S4 | S5 | S6 | S7 | S8 | S9 | S10 | S11 | S12 | S13 | S14 | S15 | S16 | S17 | S18 | S19 |
-|---        |1. |2. |3. |4. |5  |6. |7. |8. |9. |10.|11 |12 |13.|14.|15.|16.|17.|18.|19.|
+|---        | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |10 |11 |12 |13 |14 |15 |16 |17 |18 |19 |
 | S1        | 0 | - | - | - | - | - | - | - | - | - | - | - | 1 | - | - | 2 | 3 | - | - |
 | S2        | - | 0 | - | - | - | - | - | - | - | - | - | - | - | 1 | - | 2 | 3 | - | - |
 | S3        | - | - | 0 | - | - | - | - | - | - | - | - | - | - | 1 | - | 2 | 3 | - | - |
@@ -355,7 +356,7 @@ Distance means the number of directed edges from the row SLO to the column SLO. 
 | S8        | - | - | - | - | - | - | - | 0 | - | - | 1 | - | 2 | 2 | - | 3 | 4 | - | - |
 | S9        | - | - | - | - | 1 | 2 | 2 | 2 | 0 | 3 | 3 | - | 4 | 4 | - | 5 | 6 | - | - |
 | S10       | - | - | - | - | - | - | - | - | - | 0 | - | - | - | - | - | - | - | - | - |
-| S1        | - | - | - | - | - | - | - | - | - | - | 0 | - | 1 | 1 | - | 2 | 3 | - | - |
+| S11       | - | - | - | - | - | - | - | - | - | - | 0 | - | 1 | 1 | - | 2 | 3 | - | - |
 | S12       | - | - | - | - | - | - | - | - | - | - | - | 0 | 1 | 1 | 1 | 2 | 3 | - | - |
 | S13       | - | - | - | - | - | - | - | - | - | - | - | - | 0 | - | - | 1 | 2 | - | - |
 | S14       | - | - | - | - | - | - | - | - | - | - | - | - | - | 0 | - | 1 | 2 | - | - |
